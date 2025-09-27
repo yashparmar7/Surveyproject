@@ -66,8 +66,8 @@ const CollectInfo = () => {
           {/* WhatsApp Question */}
           <fieldset className="mb-4">
             <label className="form-label fw-semibold">
-              1. Would you be okay being added to the WhatsApp group with <br />
-              other like-minded citizens of this area?
+              1. Would you be okay being added to the WhatsApp group with other
+              like-minded citizens of this area?
               <i
                 className="fa-solid fa-lightbulb text-warning ms-2"
                 style={{ cursor: "pointer" }}
@@ -256,11 +256,11 @@ const CollectInfo = () => {
           </fieldset>
 
           {/* Buttons */}
-          <div className="d-flex justify-content-evenly mt-4">
-            <Link to="/personal" className="btn btn-outline-primary px-5">
+          <div className="d-flex justify-content-between mt-4">
+            <Link to="/personal" className="btn btn-outline-primary px-4">
               Previous
             </Link>
-            <button type="submit" className="btn btn-primary px-5 text-white">
+            <button type="submit" className="btn btn-primary px-4 text-white">
               Continue
             </button>
           </div>

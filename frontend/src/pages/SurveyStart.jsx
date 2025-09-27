@@ -45,9 +45,9 @@ const SurveyStart = () => {
         <form onSubmit={handleSubmit} className="pb-5">
           <div id="instructionGroup">
             {/* Question 1 */}
-            <fieldset className="mb-4 p-3">
+            <fieldset className=" p-3">
               <div className="d-flex align-items-start gap-2">
-                <label className="form-label fw-semibold mb-0 flex-grow-1">
+                <label className="form-label fw-semibold mb-0">
                   1. Was the door knocked?
                   <i
                     className="fa-solid fa-lightbulb text-warning ms-2"
@@ -58,14 +58,14 @@ const SurveyStart = () => {
                     aria-controls="q1-instruction"
                   ></i>
                 </label>
-              </div>
-              <div
-                className="collapse mt-2"
-                id="q1-instruction"
-                data-bs-parent="#instructionGroup"
-              >
-                <div className="card card-body p-3 small bg-light">
-                  Instruction for question 1 goes here.
+                <div
+                  className="collapse flex-grow-1"
+                  id="q1-instruction"
+                  data-bs-parent="#instructionGroup"
+                >
+                  <div className="card card-body p-3 small bg-light">
+                    Instruction for question 1 goes here.
+                  </div>
                 </div>
               </div>
               <div className="mt-3">
@@ -103,9 +103,9 @@ const SurveyStart = () => {
             </fieldset>
 
             {/* Question 2 */}
-            <fieldset className="mb-4 p-3">
+            <fieldset className="p-3">
               <div className="d-flex align-items-start gap-2">
-                <label className="form-label fw-semibold mb-0 flex-grow-1">
+                <label className="form-label fw-semibold mb-0">
                   2. Can I take two minutes of your time?
                   <i
                     className="fa-solid fa-lightbulb text-warning ms-2"
@@ -116,14 +116,14 @@ const SurveyStart = () => {
                     aria-controls="q2-instruction"
                   ></i>
                 </label>
-              </div>
-              <div
-                className="collapse mt-2"
-                id="q2-instruction"
-                data-bs-parent="#instructionGroup"
-              >
-                <div className="card card-body p-3 small bg-light">
-                  Instruction for question 2 goes here.
+                <div
+                  className="collapse flex-grow-1"
+                  id="q2-instruction"
+                  data-bs-parent="#instructionGroup"
+                >
+                  <div className="card card-body p-3 small bg-light">
+                    Instruction for question 2 goes here.
+                  </div>
                 </div>
               </div>
               <div className="mt-3">
@@ -162,11 +162,11 @@ const SurveyStart = () => {
           </div>
 
           {/* Buttons */}
-          <div className="d-flex justify-content-evenly mt-4">
-            <Link to="/door-search" className="btn btn-outline-primary px-5">
+          <div className="d-flex justify-content-between mt-4">
+            <Link to="/door-search" className="btn btn-outline-primary px-4">
               Previous
             </Link>
-            <button type="submit" className="btn btn-primary px-5 text-white">
+            <button type="submit" className="btn btn-primary px-4 text-white">
               Continue
             </button>
           </div>

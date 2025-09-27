@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Navbar from "../components/Navbar"; // ✅ Common Navbar
+import Navbar from "../components/Navbar";
 
 const Personal = () => {
   const [answers, setAnswers] = useState({
@@ -60,7 +60,7 @@ const Personal = () => {
         {/* ✅ Form with same style as SurveyQA */}
         <form onSubmit={handleSubmit} id="instructionGroup" className="p-3">
           {/* Question 1 */}
-          <fieldset className="mb-4">
+          <fieldset className="p-3">
             <div className="d-flex align-items-start gap-2">
               <label className="form-label fw-semibold mb-0">
                 1. Would you like to be part of BNP Area Sabha Team?
@@ -179,11 +179,11 @@ const Personal = () => {
           </fieldset>
 
           {/* Buttons */}
-          <div className="d-flex justify-content-evenly mt-4">
-            <Link to="/surveyqa" className="btn btn-outline-primary px-5">
+          <div className="d-flex justify-content-between mt-4">
+            <Link to="/surveyqa" className="btn btn-outline-primary px-4">
               Previous
             </Link>
-            <button type="submit" className="btn btn-primary px-5 text-white">
+            <button type="submit" className="btn btn-primary px-4 text-white">
               Continue
             </button>
           </div>

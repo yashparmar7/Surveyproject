@@ -115,20 +115,22 @@ const Existinghhs = () => {
           <form onSubmit={handleSubmit}>
             {/* Question 1 */}
             <fieldset className="mb-3">
-              <label className="form-label fw-semibold d-block">
-                1. Door knocked?{" "}
-                <i
-                  className="fa-solid fa-lightbulb text-warning ms-1"
-                  style={{ cursor: "pointer" }}
-                  data-bs-toggle="collapse"
-                  data-bs-target="#q1-instruction"
-                  aria-expanded="false"
-                  aria-controls="q1-instruction"
-                ></i>
-              </label>
-              <div className="collapse mb-2" id="q1-instruction">
-                <div className="card card-body p-2">
-                  Instruction for Question 1 goes here.
+              <div className="d-flex align-items-start gap-2">
+                <label className="form-label fw-semibold d-block">
+                  1. Door knocked?{" "}
+                  <i
+                    className="fa-solid fa-lightbulb text-warning ms-1"
+                    style={{ cursor: "pointer" }}
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q1-instruction"
+                    aria-expanded="false"
+                    aria-controls="q1-instruction"
+                  ></i>
+                </label>
+                <div className="collapse flex-grow-1" id="q1-instruction">
+                  <div className="card card-body small bg-light p-2">
+                    Instruction for Question 1 goes here.
+                  </div>
                 </div>
               </div>
               <div className="form-check">
@@ -163,20 +165,22 @@ const Existinghhs = () => {
 
             {/* Question 2 */}
             <fieldset className="mb-3">
-              <label className="form-label fw-semibold d-block">
-                2. Can I take two mins of your time?{" "}
-                <i
-                  className="fa-solid fa-lightbulb text-warning ms-1"
-                  style={{ cursor: "pointer" }}
-                  data-bs-toggle="collapse"
-                  data-bs-target="#q2-instruction"
-                  aria-expanded="false"
-                  aria-controls="q2-instruction"
-                ></i>
-              </label>
-              <div className="collapse mb-2" id="q2-instruction">
-                <div className="card card-body p-2">
-                  Instruction for Question 2 goes here.
+              <div className="d-flex align-items-start gap-2">
+                <label className="form-label fw-semibold d-block">
+                  2. Can I take two mins of your time?{" "}
+                  <i
+                    className="fa-solid fa-lightbulb text-warning ms-1"
+                    style={{ cursor: "pointer" }}
+                    data-bs-toggle="collapse"
+                    data-bs-target="#q2-instruction"
+                    aria-expanded="false"
+                    aria-controls="q2-instruction"
+                  ></i>
+                </label>
+                <div className="collapse flex-grow-1" id="q2-instruction">
+                  <div className="card card-body small bg-light p-2">
+                    Instruction for Question 2 goes here.
+                  </div>
                 </div>
               </div>
               <div className="form-check">

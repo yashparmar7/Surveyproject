@@ -231,13 +231,13 @@ const Survey = () => {
                 </label>
               </div>
               {/* Button  */}
-              <div className="d-flex justify-content-evenly mt-4">
-                <Link to="/home" className="btn btn-outline-primary px-5">
+              <div className="d-flex justify-content-between mt-4">
+                <Link to="/home" className="btn btn-outline-primary px-4">
                   Previous
                 </Link>
                 <button
                   type="submit"
-                  className="btn btn-primary px-5 text-white"
+                  className="btn btn-primary px-4 text-white"
                 >
                   Continue
                 </button>

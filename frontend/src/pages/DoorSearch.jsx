@@ -179,7 +179,7 @@ const DoorSearch = () => {
                   </div>
 
                   <div className="collapse mt-2" id="q1-instruction">
-                    <div className="card card-body p-2">
+                    <div className="card card-body small bg-light p-2">
                       Namaskara! I’m a volunteer with the Bengaluru NavaNirmana
                       Party – or BNP. We are a citizen-led political party
                       focused only on Bengaluru and its local civic issues.

@@ -61,7 +61,7 @@ const Final = () => {
           <h5 className="mb-4">Final Check</h5>
 
           {/* Remark */}
-          <div className="mb-4">
+          <div className="p-3">
             <label htmlFor="remark" className="form-label fw-semibold">
               Remark
             </label>
@@ -77,19 +77,21 @@ const Final = () => {
           </div>
 
           {/* Phone Collected */}
-          <fieldset className="mb-4">
-            <label className="form-label fw-semibold">
-              1. Did you collect the Phone Number?
-              <i
-                className="fa-solid fa-lightbulb text-warning ms-2"
-                style={{ cursor: "pointer" }}
-                data-bs-toggle="collapse"
-                data-bs-target="#instruction1"
-              ></i>
-            </label>
-            <div className="collapse mt-2" id="instruction1">
-              <div className="card card-body bg-light small p-2">
-                instruction goes here.
+          <fieldset className="p-3">
+            <div className="d-flex align-items-start gap-2">
+              <label className="form-label fw-semibold">
+                1. Did you collect the Phone Number?
+                <i
+                  className="fa-solid fa-lightbulb text-warning ms-2"
+                  style={{ cursor: "pointer" }}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#instruction1"
+                ></i>
+              </label>
+              <div className="collapse flex-grow-1" id="instruction1">
+                <div className="card card-body bg-light small p-2">
+                  instruction goes here.
+                </div>
               </div>
             </div>
             <div className="d-flex gap-4 mt-2">
@@ -127,19 +129,21 @@ const Final = () => {
           </fieldset>
 
           {/* WhatsApp Group */}
-          <fieldset className="mb-4">
-            <label className="form-label fw-semibold">
-              2. Did you add them to the WhatsApp group?
-              <i
-                className="fa-solid fa-lightbulb text-warning ms-2"
-                style={{ cursor: "pointer" }}
-                data-bs-toggle="collapse"
-                data-bs-target="#instruction2"
-              ></i>
-            </label>
-            <div className="collapse mt-2" id="instruction2">
-              <div className="card card-body small bg-light p-2">
-                instruction goes here.
+          <fieldset className="p-3">
+            <div className="d-flex align-items-start gap-2">
+              <label className="form-label fw-semibold">
+                2. Did you add them to the WhatsApp group?
+                <i
+                  className="fa-solid fa-lightbulb text-warning ms-2"
+                  style={{ cursor: "pointer" }}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#instruction2"
+                ></i>
+              </label>
+              <div className="collapse flex-grow-1" id="instruction2">
+                <div className="card card-body small bg-light p-2">
+                  instruction goes here.
+                </div>
               </div>
             </div>
             <div className="d-flex gap-4 mt-2">
@@ -177,19 +181,21 @@ const Final = () => {
           </fieldset>
 
           {/* Pamphlet Given */}
-          <fieldset className="mb-4">
-            <label className="form-label fw-semibold">
-              3. Did you hand out the pamphlet?
-              <i
-                className="fa-solid fa-lightbulb text-warning ms-2"
-                style={{ cursor: "pointer" }}
-                data-bs-toggle="collapse"
-                data-bs-target="#instruction3"
-              ></i>
-            </label>
-            <div className="collapse mt-2" id="instruction3">
-              <div className="card card-body small p-2 bg-light">
-                instruction goes here.
+          <fieldset className="p-3">
+            <div className="d-flex align-items-start gap-2">
+              <label className="form-label fw-semibold">
+                3. Did you hand out the pamphlet?
+                <i
+                  className="fa-solid fa-lightbulb text-warning ms-2"
+                  style={{ cursor: "pointer" }}
+                  data-bs-toggle="collapse"
+                  data-bs-target="#instruction3"
+                ></i>
+              </label>
+              <div className="collapse flex-grow-1" id="instruction3">
+                <div className="card card-body small p-2 bg-light">
+                  instruction goes here.
+                </div>
               </div>
             </div>
             <div className="d-flex gap-4 mt-2">
@@ -227,8 +233,8 @@ const Final = () => {
           </fieldset>
 
           {/* Buttons */}
-          <div className="d-flex justify-content-evenly mt-4">
-            <button type="submit" className="btn btn-primary px-5">
+          <div className="d-flex justify-content-between mt-5 gap-2">
+            <button type="submit" className="btn btn-primary px-5 text-white">
               Finish
             </button>
             <button
