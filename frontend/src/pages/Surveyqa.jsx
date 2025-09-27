@@ -112,7 +112,7 @@ const Surveyqa = () => {
               </div>
 
               {/* Instructions */}
-              <div className="collapse mt-2" id={`${q.key}-instruction`}>
+              <div className="collapse flex-grow-1" id={`${q.key}-instruction`}>
                 <div className="card card-body p-3 small bg-light">
                   {q.instruction}
                 </div>

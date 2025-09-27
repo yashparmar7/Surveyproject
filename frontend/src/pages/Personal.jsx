@@ -78,10 +78,7 @@ const Personal = () => {
                 id="q1-instruction"
                 data-bs-parent="#instructionGroup"
               >
-                <div
-                  className="card card-body p-2"
-                  style={{ maxWidth: "800px" }}
-                >
+                <div className="card card-body p-2 small bg-light">
                   BNP is building citizen-led Area Sabha teams. Already, we have
                   100s of members in this area as part of the group. These teams
                   help resolve civic issues, support services like voter ID &
@@ -126,7 +123,7 @@ const Personal = () => {
           </fieldset>
 
           {/* Question 2 */}
-          <fieldset className="mb-4">
+          <fieldset className="p-3">
             <div className="d-flex align-items-start gap-2">
               <label className="form-label fw-semibold mb-0">
                 2. Would you be OK with sharing your personal info?
@@ -144,10 +141,7 @@ const Personal = () => {
                 id="q2-instruction"
                 data-bs-parent="#instructionGroup"
               >
-                <div
-                  className="card card-body p-2"
-                  style={{ maxWidth: "800px" }}
-                >
+                <div className="card card-body p-2 small bg-light">
                   Instruction for Question 2 goes here.
                 </div>
               </div>

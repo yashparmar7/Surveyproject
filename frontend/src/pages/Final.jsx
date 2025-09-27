@@ -88,7 +88,9 @@ const Final = () => {
               ></i>
             </label>
             <div className="collapse mt-2" id="instruction1">
-              <div className="card small p-2">instruction goes here.</div>
+              <div className="card card-body bg-light small p-2">
+                instruction goes here.
+              </div>
             </div>
             <div className="d-flex gap-4 mt-2">
               <div className="form-check">
@@ -136,7 +138,9 @@ const Final = () => {
               ></i>
             </label>
             <div className="collapse mt-2" id="instruction2">
-              <div className="card small p-2">instruction goes here.</div>
+              <div className="card card-body small bg-light p-2">
+                instruction goes here.
+              </div>
             </div>
             <div className="d-flex gap-4 mt-2">
               <div className="form-check">
@@ -184,7 +188,9 @@ const Final = () => {
               ></i>
             </label>
             <div className="collapse mt-2" id="instruction3">
-              <div className="card small p-2">instruction goes here.</div>
+              <div className="card card-body small p-2 bg-light">
+                instruction goes here.
+              </div>
             </div>
             <div className="d-flex gap-4 mt-2">
               <div className="form-check">

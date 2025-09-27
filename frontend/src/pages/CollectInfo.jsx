@@ -76,7 +76,7 @@ const CollectInfo = () => {
               ></i>
             </label>
             <div className="collapse mt-2" id="q1-instruction">
-              <div className="card p-2 small">
+              <div className="card p-2 small bg-light ">
                 Whatever issue you’re facing whether it’s with E-Khata, property
                 tax, or any civic issue like garbage, street lights etc, this
                 WhatsApp group is your support community. The BNP Team will pick
