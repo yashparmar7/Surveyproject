@@ -78,7 +78,14 @@ const Personal = () => {
                 id="q1-instruction"
                 data-bs-parent="#instructionGroup"
               >
-                <div className="card card-body p-2 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   BNP is building citizen-led Area Sabha teams. Already, we have
                   100s of members in this area as part of the group. These teams
                   help resolve civic issues, support services like voter ID &
@@ -141,7 +148,14 @@ const Personal = () => {
                 id="q2-instruction"
                 data-bs-parent="#instructionGroup"
               >
-                <div className="card card-body p-2 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   Instruction for Question 2 goes here.
                 </div>
               </div>

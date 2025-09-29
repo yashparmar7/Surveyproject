@@ -128,7 +128,14 @@ const Existinghhs = () => {
                   ></i>
                 </label>
                 <div className="collapse flex-grow-1" id="q1-instruction">
-                  <div className="card card-body small bg-light p-2">
+                  <div
+                    className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                    style={{
+                      fontSize: "0.9rem",
+                      lineHeight: "1.4",
+                      color: "#333",
+                    }}
+                  >
                     Instruction for Question 1 goes here.
                   </div>
                 </div>
@@ -178,7 +185,14 @@ const Existinghhs = () => {
                   ></i>
                 </label>
                 <div className="collapse flex-grow-1" id="q2-instruction">
-                  <div className="card card-body small bg-light p-2">
+                  <div
+                    className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                    style={{
+                      fontSize: "0.9rem",
+                      lineHeight: "1.4",
+                      color: "#333",
+                    }}
+                  >
                     Instruction for Question 2 goes here.
                   </div>
                 </div>

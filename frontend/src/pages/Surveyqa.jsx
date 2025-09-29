@@ -74,8 +74,12 @@ const Surveyqa = () => {
               </label>
               <div className="collapse flex-grow-1" id="q1-instruction">
                 <div
-                  className="card card-body p-3 small bg-light"
-                  style={{ maxWidth: "800px" }}
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
                 >
                   Voter's ID Details go here...
                 </div>
@@ -130,7 +134,14 @@ const Surveyqa = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="q2-instruction">
-                <div className="card card-body p-3 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   Instruction for Question 2 goes here.
                 </div>
               </div>
@@ -184,7 +195,14 @@ const Surveyqa = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="q3-instruction">
-                <div className="card card-body p-3 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   Instruction for Question 3 goes here.
                 </div>
               </div>
@@ -238,7 +256,14 @@ const Surveyqa = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="q4-instruction">
-                <div className="card card-body p-3 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   Instruction for Question 4 goes here.
                 </div>
               </div>
@@ -292,7 +317,14 @@ const Surveyqa = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="q5-instruction">
-                <div className="card card-body p-3 small bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   If No - Reveal that it is 10,000Cr per year.
                 </div>
               </div>
@@ -349,7 +381,10 @@ const Surveyqa = () => {
               </label>
             </div>
             <div className="collapse flex-grow-1" id="q6-instruction">
-              <div className="card card-body p-3 small bg-light">
+              <div
+                className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                style={{ fontSize: "0.9rem", lineHeight: "1.4", color: "#333" }}
+              >
                 Instruction for Question 6 goes here.
               </div>
             </div>

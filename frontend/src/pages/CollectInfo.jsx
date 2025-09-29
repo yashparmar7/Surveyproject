@@ -76,7 +76,10 @@ const CollectInfo = () => {
               ></i>
             </label>
             <div className="collapse mt-2" id="q1-instruction">
-              <div className="card p-2 small bg-light ">
+              <div
+                className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                style={{ fontSize: "0.9rem", lineHeight: "1.4", color: "#333" }}
+              >
                 Whatever issue you’re facing whether it’s with E-Khata, property
                 tax, or any civic issue like garbage, street lights etc, this
                 WhatsApp group is your support community. The BNP Team will pick

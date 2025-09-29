@@ -89,7 +89,14 @@ const Final = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="instruction1">
-                <div className="card card-body bg-light small p-2">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   instruction goes here.
                 </div>
               </div>
@@ -141,7 +148,14 @@ const Final = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="instruction2">
-                <div className="card card-body small bg-light p-2">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   instruction goes here.
                 </div>
               </div>
@@ -193,7 +207,14 @@ const Final = () => {
                 ></i>
               </label>
               <div className="collapse flex-grow-1" id="instruction3">
-                <div className="card card-body small p-2 bg-light">
+                <div
+                  className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                  style={{
+                    fontSize: "0.9rem",
+                    lineHeight: "1.4",
+                    color: "#333",
+                  }}
+                >
                   instruction goes here.
                 </div>
               </div>

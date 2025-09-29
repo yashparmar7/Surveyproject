@@ -63,7 +63,14 @@ const SurveyStart = () => {
                   id="q1-instruction"
                   data-bs-parent="#instructionGroup"
                 >
-                  <div className="card card-body p-3 small bg-light">
+                  <div
+                    className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                    style={{
+                      fontSize: "0.9rem",
+                      lineHeight: "1.4",
+                      color: "#333",
+                    }}
+                  >
                     Instruction for question 1 goes here.
                   </div>
                 </div>
@@ -121,7 +128,14 @@ const SurveyStart = () => {
                   id="q2-instruction"
                   data-bs-parent="#instructionGroup"
                 >
-                  <div className="card card-body p-3 small bg-light">
+                  <div
+                    className="p-3 rounded shadow-sm bg-light border-start border-3 border-warning"
+                    style={{
+                      fontSize: "0.9rem",
+                      lineHeight: "1.4",
+                      color: "#333",
+                    }}
+                  >
                     Instruction for question 2 goes here.
                   </div>
                 </div>
