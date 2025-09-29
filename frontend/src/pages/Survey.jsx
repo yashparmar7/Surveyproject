@@ -29,6 +29,7 @@ const Survey = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(formData);
     navigate("/door-search");
   };
 

@@ -82,6 +82,7 @@ const DoorSearch = () => {
 
   const handleStartNewSurvey = (event) => {
     event.preventDefault();
+    console.log(formData);
     navigate("/survey-start");
   };
 
