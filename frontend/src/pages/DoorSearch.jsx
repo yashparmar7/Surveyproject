@@ -60,6 +60,8 @@ const DoorSearch = () => {
       return;
     }
 
+    console.log(formData);
+
     const streetToSave = formData.streetName;
     if (!streetToSave) {
       alert("Please provide a street name!");

@@ -47,7 +47,7 @@ const Survey = () => {
         </div>
         <h3 className="text-center mb-3">Jana Spandana Survey</h3>
 
-        <div className="survey-form w-100" style={{ maxWidth: "800px" }}>
+        <div className="survey-form  w-100" style={{ maxWidth: "1000px" }}>
           <form onSubmit={handleSubmit} className="p-4">
             <div className="row">
               <div className="col-md-6">

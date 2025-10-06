@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const AssemblySchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    assemblyname: { type: String, required: true },
   },
   { timestamps: true }
 );

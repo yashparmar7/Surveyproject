@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const QBCategorySchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    qbcategoryname: { type: String, required: true },
     description: { type: String },
   },
   { timestamps: true }

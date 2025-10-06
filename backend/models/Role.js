@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const RoleSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true, unique: true },
+    rolename: { type: String, required: true, unique: true },
     status: { type: String, enum: ["active", "inactive"], default: "active" },
   },
   { timestamps: true }

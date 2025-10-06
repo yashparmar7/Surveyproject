@@ -2,8 +2,9 @@ const mongoose = require("mongoose");
 
 const BlockSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    blockname: { type: String, required: true },
     description: { type: String },
+    pincode: { type: number, required: true },
     type: { type: mongoose.Schema.Types.ObjectId, ref: "BlockType" },
     area: { type: mongoose.Schema.Types.ObjectId, ref: "Area" },
   },

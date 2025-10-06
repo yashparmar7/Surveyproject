@@ -32,7 +32,7 @@ const Personal = () => {
       <Navbar />
 
       <main className="container mt-4">
-        {/* ✅ Household details card */}
+        {/*  Household details card */}
         <div className="p-3 mb-4 rounded shadow-sm bg-light">
           <h5 className="mb-3 fw-semibold">Household Details</h5>
           <div className="d-flex flex-wrap gap-4">
@@ -57,7 +57,7 @@ const Personal = () => {
           </div>
         </div>
 
-        {/* ✅ Form with same style as SurveyQA */}
+        {/*  Form with same style as SurveyQA */}
         <form onSubmit={handleSubmit} id="instructionGroup" className="p-3">
           {/* Question 1 */}
           <fieldset className="p-3">

@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 
 const AreaSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
-    ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward" },
+    areaname: { type: String, required: true },
     description: { type: String },
+    ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward" },
+    assembly: { type: mongoose.Schema.Types.ObjectId, ref: "Assembly" },
+    corporation: { type: mongoose.Schema.Types.ObjectId, ref: "Corporation" },
   },
   { timestamps: true }
 );
