@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import Navbar from "../components/Navbar"; // Uncomment if needed
 
-const Registration = () => {
+const CreateUser = () => {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -23,10 +23,31 @@ const Registration = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    navigate("/home");
+    try {
+      const res = await fetch("http://localhost:5050/api/users/create-user", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: formData.firstname,
+          lastName: formData.lastname,
+          email: formData.email,
+          phone: formData.phone,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert("User Created Successfully! Check email for set-password link.");
+        console.log("Invite link:", data.setPasswordLink);
+        navigate("/");
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Error registering user");
+    }
   };
 
   return (
@@ -37,7 +58,7 @@ const Registration = () => {
           className="card shadow-lg border-0 rounded-3 mx-auto p-4 p-md-5"
           style={{ maxWidth: "720px" }}
         >
-          <h4 className="mb-4 text-center fw-bold fs-3">Registration Form</h4>
+          <h4 className="mb-4 text-center fw-bold fs-3">Create User Form</h4>
 
           <form onSubmit={handleSubmit}>
             <div className="row g-3">
@@ -152,7 +173,7 @@ const Registration = () => {
             {/* Submit */}
             <div className="d-flex justify-content-center mt-4">
               <button type="submit" className="btn btn-primary px-4 py-2">
-                Registration Now
+                Submit
               </button>
             </div>
           </form>
@@ -162,4 +183,4 @@ const Registration = () => {
   );
 };
 
-export default Registration;
+export default CreateUser;

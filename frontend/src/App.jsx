@@ -10,13 +10,14 @@ import Profile from "./pages/Profile";
 import Survey from "./pages/Survey";
 import Surveyqa from "./pages/Surveyqa";
 import SurveyStart from "./pages/SurveyStart";
-import Registration from "./pages/Registration";
+import CreateUser from "./pages/CreateUser";
+import SetPassword from "./pages/SetPassword";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/registration" element={<Registration />} />
+
         <Route path="/collect-info" element={<CollectInfo />} />
         <Route path="/door-search" element={<DoorSearch />} />
         <Route path="/existinghhs" element={<Existinghhs />} />
@@ -27,6 +28,9 @@ function App() {
         <Route path="/survey" element={<Survey />} />
         <Route path="/surveyqa" element={<Surveyqa />} />
         <Route path="/survey-start" element={<SurveyStart />} />
+
+        <Route path="/createuser" element={<CreateUser />} />
+        <Route path="/set-password" element={<SetPassword />} />
       </Routes>
     </Router>
   );
