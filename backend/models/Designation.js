@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const DesignationSchema = new mongoose.Schema(
   {
-    designationname: { type: String, required: true, unique: true },
+    designationName: { type: String, required: true, unique: true },
   },
   { timestamps: true }
 );

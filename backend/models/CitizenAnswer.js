@@ -7,14 +7,12 @@ const CitizenAnswerSchema = new mongoose.Schema(
       ref: "Citizen",
       required: true,
     },
-    survey: {
+    qbDetail: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Survey",
+      ref: "QBDetail",
       required: true,
     },
-    answers: { type: Object },
-    answeredBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    answeredAt: { type: Date, default: Date.now },
+    optionAnswer: { type: String, required: true },
   },
   { timestamps: true }
 );

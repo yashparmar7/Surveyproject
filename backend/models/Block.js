@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const BlockSchema = new mongoose.Schema(
   {
-    blockname: { type: String, required: true },
+    blockName: { type: String, required: true },
     description: { type: String },
     pincode: { type: number, required: true },
     type: { type: mongoose.Schema.Types.ObjectId, ref: "BlockType" },

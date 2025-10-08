@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const AreaSchema = new mongoose.Schema(
   {
-    areaname: { type: String, required: true },
+    areaName: { type: String, required: true },
     description: { type: String },
     ward: { type: mongoose.Schema.Types.ObjectId, ref: "Ward" },
     assembly: { type: mongoose.Schema.Types.ObjectId, ref: "Assembly" },

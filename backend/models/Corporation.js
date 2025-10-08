@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const CorporationSchema = new mongoose.Schema(
   {
-    corporationname: { type: String, required: true },
+    corporationName: { type: String, required: true },
   },
   { timestamps: true }
 );

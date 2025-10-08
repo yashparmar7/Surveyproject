@@ -7,13 +7,17 @@ const CitizenSurveySchema = new mongoose.Schema(
       ref: "Citizen",
       required: true,
     },
-    survey: {
+    surveyType: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Survey",
+      ref: "SurveyType",
       required: true,
     },
-    assignedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-    assignedAt: { type: Date, default: Date.now },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    existingFlag: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
