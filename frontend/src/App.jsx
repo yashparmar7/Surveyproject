@@ -10,11 +10,13 @@ import Profile from "./pages/Profile";
 import Survey from "./pages/Survey";
 import Surveyqa from "./pages/Surveyqa";
 import SurveyStart from "./pages/SurveyStart";
+import Registration from "./pages/Registration";
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/registration" element={<Registration />} />
         <Route path="/collect-info" element={<CollectInfo />} />
         <Route path="/door-search" element={<DoorSearch />} />
         <Route path="/existinghhs" element={<Existinghhs />} />
