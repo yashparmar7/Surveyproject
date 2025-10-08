@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const WardSchema = new mongoose.Schema(
   {
-    oldName: { type: String, required: true },
-    oldNumber: { type: Number, required: true },
-    newName: { type: String, required: true },
-    newNumber: { type: Number },
+    oldWardName: { type: String },
+    oldWardNumber: { type: Number },
+    newWardName: { type: String },
+    newWardNumber: { type: Number },
     assembly: { type: mongoose.Schema.Types.ObjectId, ref: "Assembly" },
     corporation: { type: mongoose.Schema.Types.ObjectId, ref: "Corporation" },
   },

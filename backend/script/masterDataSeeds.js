@@ -9,9 +9,7 @@ const QBCategory = require("../models/QBCategory.js");
 const SurveyType = require("../models/SurveyType.js");
 const Corporation = require("../models/Corporation.js");
 const Designation = require("../models/Designation.js");
-const Assembly = require("../models/Assembly.js");
-const Ward = require("../models/Ward.js");
-
+const AssemblyConstituency = require("../models/AssemblyConstituency.js");
 const masterDataSeeds = async () => {
   try {
     await connectDB();
@@ -104,41 +102,41 @@ const masterDataSeeds = async () => {
 
     await Promise.all([
       Role.insertMany(
-        roleData.map((name) => ({ name })),
+        roleData.map((name) => ({ roleName: name })),
         { ordered: false }
       ),
       BlockType.insertMany(
-        blockTypeData.map((name) => ({ name })),
+        blockTypeData.map((name) => ({ blockTypeName: name })),
         { ordered: false }
       ),
       SurveyTopic.insertMany(
-        surveyTopicData.map((name) => ({ name })),
+        surveyTopicData.map((name) => ({ surveyTopicName: name })),
         { ordered: false }
       ),
       QuestionType.insertMany(
-        questionTypeData.map((name) => ({ name })),
+        questionTypeData.map((name) => ({ questionTypeName: name })),
         { ordered: false }
       ),
       QBCategory.insertMany(
-        qbCategoryData.map((name) => ({ name })),
+        qbCategoryData.map((name) => ({ qbCategoryName: name })),
         { ordered: false }
       ),
       SurveyType.insertMany(
-        surveyTypeData.map((name) => ({ name })),
+        surveyTypeData.map((name) => ({ surveyTypeName: name })),
         { ordered: false }
       ),
       Corporation.insertMany(
-        corporationData.map((name) => ({ name })),
+        corporationData.map((name) => ({ corporationName: name })),
         { ordered: false }
       ),
       Designation.insertMany(
-        designationData.map((name) => ({ name })),
+        designationData.map((name) => ({ designationName: name })),
         { ordered: false }
       ),
-      //   Assembly.insertMany(
-      //     assemblyData.map((name) => ({ name })),
-      //     { ordered: false }
-      //   ),
+      AssemblyConstituency.insertMany(
+        assemblyData.map((name) => ({ assemblyName: name })),
+        { ordered: false }
+      ),
     ]);
 
     console.log(" Master data seeded successfully!");
