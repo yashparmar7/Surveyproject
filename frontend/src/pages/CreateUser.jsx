@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import Navbar from "../components/Navbar"; // Uncomment if needed
+import { toast } from "react-toastify";
+import Navbar from "../components/Navbar";
 
 const CreateUser = () => {
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
-    gender: "",
-    dob: "",
-    address: "",
     phone: "",
     email: "",
   });
@@ -36,29 +34,42 @@ const CreateUser = () => {
           phone: formData.phone,
         }),
       });
+
       const data = await res.json();
       if (res.ok) {
-        alert("User Created Successfully! Check email for set-password link.");
+        toast.success(
+          " User Created Successfully! Check email for set-password link."
+        );
         console.log("Invite link:", data.setPasswordLink);
-        navigate("/");
+        navigate("/createuser");
+        setFormData({
+          firstname: "",
+          lastname: "",
+          phone: "",
+          email: "",
+        });
       } else {
-        alert(data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.error(error);
-      alert("Error registering user");
+      toast.error("Error creating user. Please try again later.");
     }
   };
 
   return (
     <>
-      {/* <Navbar /> */}
-      <div className="container py-4 py-md-4 mt-5">
+      <Navbar />
+      <div className="d-flex align-items-center justify-content-center my-20 bg-light">
         <div
-          className="card shadow-lg border-0 rounded-3 mx-auto p-4 p-md-5"
-          style={{ maxWidth: "720px" }}
+          className="card shadow-lg border-0 rounded-4 p-4 p-md-5"
+          style={{
+            width: "100%",
+            maxWidth: "700px",
+            background: "#fff",
+          }}
         >
-          <h4 className="mb-4 text-center fw-bold fs-3">Create User Form</h4>
+          <h3 className="mb-4 text-center fw-bold">Create User Form</h3>
 
           <form onSubmit={handleSubmit}>
             <div className="row g-3">
@@ -104,56 +115,6 @@ const CreateUser = () => {
                 />
               </div>
 
-              {/* Gender */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold d-block">Gender</label>
-                <div className="d-flex gap-3 flex-wrap">
-                  {["male", "female", "other"].map((g) => (
-                    <div className="form-check" key={g}>
-                      <input
-                        className="form-check-input"
-                        type="radio"
-                        name="gender"
-                        id={g}
-                        value={g}
-                        checked={formData.gender === g}
-                        onChange={handleInputChange}
-                        required
-                      />
-                      <label className="form-check-label" htmlFor={g}>
-                        {g.charAt(0).toUpperCase() + g.slice(1)}
-                      </label>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* DOB */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">Date of Birth</label>
-                <input
-                  type="date"
-                  className="form-control"
-                  name="dob"
-                  value={formData.dob}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
-
-              {/* Address */}
-              <div className="col-md-6">
-                <label className="form-label fw-semibold">Address</label>
-                <textarea
-                  className="form-control"
-                  rows="2"
-                  placeholder="Enter Address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleInputChange}
-                ></textarea>
-              </div>
-
               {/* Phone */}
               <div className="col-md-6">
                 <label className="form-label fw-semibold">Phone</label>
@@ -172,8 +133,11 @@ const CreateUser = () => {
 
             {/* Submit */}
             <div className="d-flex justify-content-center mt-4">
-              <button type="submit" className="btn btn-primary px-4 py-2">
-                Submit
+              <button
+                type="submit"
+                className="btn btn-primary px-5 py-2 rounded-3 fw-semibold"
+              >
+                Submit Now
               </button>
             </div>
           </form>

@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
-const authRoutes = require("./routes/createUserRoutes");
+const createUserRoutes = require("./routes/createUserRoutes");
+const authRoutes = require("./routes/authRoutes");
 
 dotenv.config();
 
@@ -17,7 +18,8 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/users", authRoutes);
+app.use("/api/users", createUserRoutes);
+app.use("/api/auth", authRoutes);
 
 const PORT = process.env.PORT || 5050;
 const startServer = async () => {

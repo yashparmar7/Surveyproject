@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
@@ -41,10 +40,9 @@ const Navbar = () => {
                 title="Notifications"
                 aria-label="Notifications"
               >
-                <i className="fa-solid fa-bell"></i>
+                <i class="fa-regular fa-bell"></i>
               </Link>
             </li>
-
             {/* User Dropdown */}
             <li className="nav-item dropdown">
               <a
@@ -55,7 +53,7 @@ const Navbar = () => {
                 aria-expanded="false"
                 aria-haspopup="true"
               >
-                <i className="fa-solid fa-user"></i>
+                <i class="fa-regular fa-user"></i>
               </a>
               <ul className="dropdown-menu dropdown-menu-end shadow">
                 <li>

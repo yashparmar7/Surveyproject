@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SetPassword = () => {
   const [password, setPassword] = useState("");
@@ -29,7 +30,7 @@ const SetPassword = () => {
 
       const data = await res.json();
       if (res.ok) {
-        alert("Password set successfully!");
+        toast.success("Password set successfully!");
         navigate("/");
       } else {
         setMessage(data.message || "Something went wrong. Please try again.");
