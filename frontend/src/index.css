@@ -1,17 +1,18 @@
- @import "tailwindcss";
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "tailwindcss";
 
- * {
-     font-family: "Poppins", sans-serif;
- }
+* {
+    font-family: "Poppins", sans-serif;
+}
 
- .scroll-box {
-     max-width: 100%;
-     width: 100%;
-     height: 120px;
-     border: 1px solid #999;
-     padding: 10px;
-     overflow-y: auto;
-     overflow-x: hidden;
-     border-radius: 8px;
-     background-color: #fff;
- }
+.scroll-box {
+    max-width: 100%;
+    width: 100%;
+    height: 120px;
+    border: 1px solid #999;
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 8px;
+    background-color: #fff;
+}

@@ -17,7 +17,7 @@ const MainMenu = () => {
     { title: "Assembly", img: "/Civic.png", mode: "Assembly" },
     { title: "Wards", img: "/Civic.png", mode: "Wards" },
     { title: "Reports", img: "/Civic.png", mode: "Reports" },
-    { title: "Reports", img: "/Civic.png", mode: "Admin" }, // change this later
+    { title: "Users", img: "/BNP.png", mode: "Admin" }, // change this later
   ];
 
   const chunkArray = (arr, size) =>

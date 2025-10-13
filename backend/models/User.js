@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema(
     passwordSet: { type: Boolean, default: false },
     passwordToken: { type: String },
     tokenExpires: { type: Date },
+
     role: { type: mongoose.Schema.Types.ObjectId, ref: "Role", required: true },
   },
   { timestamps: true }

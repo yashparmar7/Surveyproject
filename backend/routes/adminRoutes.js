@@ -10,6 +10,7 @@ const {
   getDesignation,
   getAssemblyConstituency,
   getWard,
+  getReports,
 } = require("../controllers/adminController");
 
 const router = express.Router();
@@ -24,5 +25,6 @@ router.get("/get-corporation", getCorporation);
 router.get("/get-designation", getDesignation);
 router.get("/get-assemblyconstituency", getAssemblyConstituency);
 router.get("/get-ward", getWard);
+router.get("/get-reports", getReports);
 
 module.exports = router;
