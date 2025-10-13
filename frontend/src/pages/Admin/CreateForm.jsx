@@ -31,7 +31,7 @@ const CreateForm = () => {
   };
 
   return (
-    <div className="card shadow-lg border-0 rounded-4 p-4 p-md-5 w-50 mx-auto mt-5 bg-white">
+    <div className="card shadow-lg border-0 rounded-4 p-4 p-md-5 w-11/12 md:w-1/3 mx-auto mt-5">
       <h1 className="text-center mb-4 font-bold text-2xl">
         {mode === "edit" ? "Edit Record" : "Create Record"}
       </h1>
@@ -45,6 +45,7 @@ const CreateForm = () => {
             value={formData.fullname}
             onChange={handleChange}
             className="form-control"
+            style={{ backgroundColor: "#f8f9fa" }}
             required
           />
         </div>
@@ -57,6 +58,7 @@ const CreateForm = () => {
             value={formData.ward}
             onChange={handleChange}
             className="form-control"
+            style={{ backgroundColor: "#f8f9fa" }}
             required
           />
         </div>
@@ -69,6 +71,7 @@ const CreateForm = () => {
             value={formData.area}
             onChange={handleChange}
             className="form-control"
+            style={{ backgroundColor: "#f8f9fa" }}
             required
           />
         </div>
@@ -81,13 +84,15 @@ const CreateForm = () => {
             value={formData.community}
             onChange={handleChange}
             className="form-control"
+            style={{ backgroundColor: "#f8f9fa" }}
             required
           />
         </div>
-
-        <button type="submit" className="btn btn-primary w-100 mt-3">
-          {mode === "edit" ? "Update" : "Create"}
-        </button>
+        <div className="flex justify-center items-center mt-4">
+          <button type="submit" className="btn btn-primary w-1/2 ">
+            {mode === "edit" ? "Update" : "Create"}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -18,6 +18,7 @@ import Registration from "./pages/Registration";
 import AdminMenu from "./pages/Admin/AdminMenu";
 import AdminTable from "./pages/Admin/AdminTable";
 import CreateForm from "./pages/Admin/CreateForm";
+import ReportList from "./pages/Admin/ReportList";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
         <Route path="/adminmenu" element={<AdminMenu />} />
         <Route path="/admintable" element={<AdminTable />} />
         <Route path="/createform" element={<CreateForm />} />
+        <Route path="/reportlist" element={<ReportList />} />
       </Routes>
     </Router>
   );

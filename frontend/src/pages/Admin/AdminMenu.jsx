@@ -9,44 +9,37 @@ const MainMenu = () => {
     { title: "Role", img: "Civic.png", mode: "Role" },
     { title: "Block Type", img: "/BNP.png", mode: "BlockType" },
     { title: "Survey Topic", img: "/Volenteer.png", mode: "SurveyTopic" },
-    {
-      title: "Question Type",
-      img: "/D2D.png",
-      mode: "QuestionType",
-    },
+    { title: "Question Type", img: "/D2D.png", mode: "QuestionType" },
     { title: "QB Category", img: "/Civic.png", mode: "QBCategory" },
     { title: "Survey Type", img: "/Civic.png", mode: "SurveyType" },
     { title: "Corporation", img: "/Civic.png", mode: "Corporation" },
     { title: "Designation", img: "/Civic.png", mode: "Designation" },
     { title: "Assembly", img: "/Civic.png", mode: "Assembly" },
     { title: "Wards", img: "/Civic.png", mode: "Wards" },
-    { title: "Reports", img: "/Civic.png" },
-    { title: "Reports", img: "/Civic.png" },
+    { title: "Reports", img: "/Civic.png", mode: "Reports" },
+    { title: "Reports", img: "/Civic.png", mode: "Admin" }, // change this later
   ];
 
-  const chunkArray = (arr, size) => {
-    return arr.reduce((acc, _, i) => {
-      if (i % size === 0) acc.push(arr.slice(i, i + size));
-      return acc;
-    }, []);
-  };
+  const chunkArray = (arr, size) =>
+    arr.reduce(
+      (acc, _, i) => (i % size === 0 ? [...acc, arr.slice(i, i + size)] : acc),
+      []
+    );
 
   const rows = chunkArray(menuItems, 4);
 
   const handleClick = (mode) => {
-    navigate("/admintable", { state: { mode } });
+    if (mode === "Reports") navigate("/reportlist");
+    else navigate("/admintable", { state: { mode } });
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
-
-      {/* Center Content */}
       <div className="flex flex-1 flex-col items-center justify-center py-6 px-5">
         <h3 className="font-bold text-2xl mt-1 mb-3 text-gray-800">
           Main Menu
         </h3>
-
         <div className="flex flex-col items-center gap-3 w-full max-w-5xl">
           {rows.map((row, rowIndex) => (
             <div
@@ -59,7 +52,7 @@ const MainMenu = () => {
                   className="menu-item flex flex-col items-center gap-1 hover:scale-105 transition-transform duration-200 cursor-pointer"
                   onClick={() => handleClick(item.mode)}
                 >
-                  <div className="menu-img w-20 h-20 border-0 border-blue-500 rounded-2xl flex items-center justify-center bg-blue-50 shadow-inner">
+                  <div className="menu-img w-20 h-20 rounded-2xl flex items-center justify-center bg-blue-50 shadow-inner">
                     <img
                       src={item.img}
                       alt={item.title}

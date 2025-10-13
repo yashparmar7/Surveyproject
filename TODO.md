@@ -1,2 +1,0 @@
-- [x] Fix login in authController.js: Change to find user by email and compare hashed password
-- [x] Update createUserControllers.js: Replace Telegram sending with SMS sending to phone number

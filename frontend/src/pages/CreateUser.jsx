@@ -11,6 +11,8 @@ const CreateUser = () => {
     email: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
@@ -23,6 +25,7 @@ const CreateUser = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const res = await fetch("http://localhost:5050/api/users/create-user", {
         method: "POST",
@@ -36,24 +39,22 @@ const CreateUser = () => {
       });
 
       const data = await res.json();
+
       if (res.ok) {
         toast.success(
-          " User Created Successfully! Check email for set-password link."
+          "User Created Successfully! Check email for set-password link."
         );
         console.log("Invite link:", data.setPasswordLink);
+        setFormData({ firstname: "", lastname: "", phone: "", email: "" });
         navigate("/createuser");
-        setFormData({
-          firstname: "",
-          lastname: "",
-          phone: "",
-          email: "",
-        });
       } else {
-        toast.error(data.message);
+        toast.error(data.message || "Failed to create user.");
       }
     } catch (error) {
       console.error(error);
       toast.error("Error creating user. Please try again later.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -136,8 +137,19 @@ const CreateUser = () => {
               <button
                 type="submit"
                 className="btn btn-primary px-5 py-2 rounded-3 fw-semibold"
+                disabled={loading}
               >
-                Submit Now
+                {loading ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                    ></span>
+                    Creating User...
+                  </>
+                ) : (
+                  "Submit Now"
+                )}
               </button>
             </div>
           </form>

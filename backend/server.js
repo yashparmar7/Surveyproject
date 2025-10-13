@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/users", createUserRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/admin", require("./routes/adminRoutes"));
 
 const PORT = process.env.PORT || 5050;
 const startServer = async () => {

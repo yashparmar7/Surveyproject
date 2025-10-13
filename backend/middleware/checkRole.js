@@ -1,5 +1,3 @@
-// middleware/checkRole.js
-const Role = require("../models/Role");
 const User = require("../models/User");
 
 const checkRole = (allowedRoles = []) => {

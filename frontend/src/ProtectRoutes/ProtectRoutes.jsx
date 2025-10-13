@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoutes = ({ children, role }) => {
+const ProtectedRoutes = ({ children }) => {
   let user = null;
   try {
     user = JSON.parse(localStorage.getItem("user"));
@@ -12,10 +12,6 @@ const ProtectedRoutes = ({ children, role }) => {
 
   if (!token || !user) {
     return <Navigate to="/" replace />;
-  }
-
-  if (role && user.role !== role) {
-    return <Navigate to="/adminmenu" replace />;
   }
 
   return children;
