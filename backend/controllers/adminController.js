@@ -220,6 +220,365 @@ const getReports = async (req, res) => {
   }
 };
 
+// Create functions
+const createUser = async (req, res) => {
+  try {
+    const { firstName, lastName, email, phone, role } = req.body;
+    const newUser = new User({ firstName, lastName, email, phone, role });
+    await newUser.save();
+    res
+      .status(201)
+      .json({ message: "User created successfully", user: newUser });
+  } catch (error) {
+    console.error("Error creating user:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createBlockType = async (req, res) => {
+  try {
+    const { blockTypeName } = req.body;
+    const newBlockType = new BlockType({ blockTypeName });
+    await newBlockType.save();
+    res.status(201).json({
+      message: "Block type created successfully",
+      blockType: newBlockType,
+    });
+  } catch (error) {
+    console.error("Error creating block type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createSurveyTopic = async (req, res) => {
+  try {
+    const { surveyTopicName } = req.body;
+    const newSurveyTopic = new SurveyTopic({ surveyTopicName });
+    await newSurveyTopic.save();
+    res.status(201).json({
+      message: "Survey topic created successfully",
+      surveyTopic: newSurveyTopic,
+    });
+  } catch (error) {
+    console.error("Error creating survey topic:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createQuestionType = async (req, res) => {
+  try {
+    const { questionTypeName } = req.body;
+    const newQuestionType = new QuestionType({ questionTypeName });
+    await newQuestionType.save();
+    res.status(201).json({
+      message: "Question type created successfully",
+      questionType: newQuestionType,
+    });
+  } catch (error) {
+    console.error("Error creating question type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createQBCategory = async (req, res) => {
+  try {
+    const { qbCategoryName } = req.body;
+    const newQBCategory = new QBCategory({ qbCategoryName });
+    await newQBCategory.save();
+    res.status(201).json({
+      message: "QB category created successfully",
+      qbCategory: newQBCategory,
+    });
+  } catch (error) {
+    console.error("Error creating QB category:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createSurveyType = async (req, res) => {
+  try {
+    const { surveyTypeName } = req.body;
+    const newSurveyType = new SurveyType({ surveyTypeName });
+    await newSurveyType.save();
+    res.status(201).json({
+      message: "Survey type created successfully",
+      surveyType: newSurveyType,
+    });
+  } catch (error) {
+    console.error("Error creating survey type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createCorporation = async (req, res) => {
+  try {
+    const { corporationName } = req.body;
+    const newCorporation = new Corporation({ corporationName });
+    await newCorporation.save();
+    res.status(201).json({
+      message: "Corporation created successfully",
+      corporation: newCorporation,
+    });
+  } catch (error) {
+    console.error("Error creating corporation:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createDesignation = async (req, res) => {
+  try {
+    const { designationName } = req.body;
+    const newDesignation = new Designation({ designationName });
+    await newDesignation.save();
+    res.status(201).json({
+      message: "Designation created successfully",
+      designation: newDesignation,
+    });
+  } catch (error) {
+    console.error("Error creating designation:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createAssemblyConstituency = async (req, res) => {
+  try {
+    const { assemblyName } = req.body;
+    const newAssembly = new AssemblyConstituency({ assemblyName });
+    await newAssembly.save();
+    res.status(201).json({
+      message: "Assembly constituency created successfully",
+      assembly: newAssembly,
+    });
+  } catch (error) {
+    console.error("Error creating assembly constituency:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createWard = async (req, res) => {
+  try {
+    const { oldWardNumber, oldWardName } = req.body;
+    const newWard = new Ward({ oldWardNumber, oldWardName });
+    await newWard.save();
+    res
+      .status(201)
+      .json({ message: "Ward created successfully", ward: newWard });
+  } catch (error) {
+    console.error("Error creating ward:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// Update functions
+const updateUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { firstName, lastName, email, role } = req.body;
+
+    const updates = { firstName, lastName, email, role }; // make sure role is correct
+
+    const updatedUser = await User.findByIdAndUpdate(id, updates, {
+      new: true,
+    });
+
+    if (!updatedUser)
+      return res.status(404).json({ message: "User not found" });
+
+    res.json({ message: "User updated successfully", user: updatedUser });
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+};
+
+const updateBlockType = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { blockTypeName } = req.body;
+    const updatedBlockType = await BlockType.findByIdAndUpdate(
+      id,
+      { blockTypeName },
+      { new: true }
+    );
+    if (!updatedBlockType)
+      return res.status(404).json({ message: "Block type not found" });
+    res.json({
+      message: "Block type updated successfully",
+      blockType: updatedBlockType,
+    });
+  } catch (error) {
+    console.error("Error updating block type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateSurveyTopic = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { surveyTopicName } = req.body;
+    const updatedSurveyTopic = await SurveyTopic.findByIdAndUpdate(
+      id,
+      { surveyTopicName },
+      { new: true }
+    );
+    if (!updatedSurveyTopic)
+      return res.status(404).json({ message: "Survey topic not found" });
+    res.json({
+      message: "Survey topic updated successfully",
+      surveyTopic: updatedSurveyTopic,
+    });
+  } catch (error) {
+    console.error("Error updating survey topic:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateQuestionType = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { questionTypeName } = req.body;
+    const updatedQuestionType = await QuestionType.findByIdAndUpdate(
+      id,
+      { questionTypeName },
+      { new: true }
+    );
+    if (!updatedQuestionType)
+      return res.status(404).json({ message: "Question type not found" });
+    res.json({
+      message: "Question type updated successfully",
+      questionType: updatedQuestionType,
+    });
+  } catch (error) {
+    console.error("Error updating question type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateQBCategory = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { qbCategoryName } = req.body;
+    const updatedQBCategory = await QBCategory.findByIdAndUpdate(
+      id,
+      { qbCategoryName },
+      { new: true }
+    );
+    if (!updatedQBCategory)
+      return res.status(404).json({ message: "QB category not found" });
+    res.json({
+      message: "QB category updated successfully",
+      qbCategory: updatedQBCategory,
+    });
+  } catch (error) {
+    console.error("Error updating QB category:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateSurveyType = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { surveyTypeName } = req.body;
+    const updatedSurveyType = await SurveyType.findByIdAndUpdate(
+      id,
+      { surveyTypeName },
+      { new: true }
+    );
+    if (!updatedSurveyType)
+      return res.status(404).json({ message: "Survey type not found" });
+    res.json({
+      message: "Survey type updated successfully",
+      surveyType: updatedSurveyType,
+    });
+  } catch (error) {
+    console.error("Error updating survey type:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateCorporation = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { corporationName } = req.body;
+    const updatedCorporation = await Corporation.findByIdAndUpdate(
+      id,
+      { corporationName },
+      { new: true }
+    );
+    if (!updatedCorporation)
+      return res.status(404).json({ message: "Corporation not found" });
+    res.json({
+      message: "Corporation updated successfully",
+      corporation: updatedCorporation,
+    });
+  } catch (error) {
+    console.error("Error updating corporation:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateDesignation = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { designationName } = req.body;
+    const updatedDesignation = await Designation.findByIdAndUpdate(
+      id,
+      { designationName },
+      { new: true }
+    );
+    if (!updatedDesignation)
+      return res.status(404).json({ message: "Designation not found" });
+    res.json({
+      message: "Designation updated successfully",
+      designation: updatedDesignation,
+    });
+  } catch (error) {
+    console.error("Error updating designation:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateAssemblyConstituency = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { assemblyName } = req.body;
+    const updatedAssembly = await AssemblyConstituency.findByIdAndUpdate(
+      id,
+      { assemblyName },
+      { new: true }
+    );
+    if (!updatedAssembly)
+      return res
+        .status(404)
+        .json({ message: "Assembly constituency not found" });
+    res.json({
+      message: "Assembly constituency updated successfully",
+      assembly: updatedAssembly,
+    });
+  } catch (error) {
+    console.error("Error updating assembly constituency:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const updateWard = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { oldWardNumber, oldWardName } = req.body;
+    const updatedWard = await Ward.findByIdAndUpdate(
+      id,
+      { oldWardNumber, oldWardName },
+      { new: true }
+    );
+    if (!updatedWard)
+      return res.status(404).json({ message: "Ward not found" });
+    res.json({ message: "Ward updated successfully", ward: updatedWard });
+  } catch (error) {
+    console.error("Error updating ward:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   getUser,
   getBlockType,
@@ -232,4 +591,24 @@ module.exports = {
   getAssemblyConstituency,
   getWard,
   getReports,
+  createUser,
+  createBlockType,
+  createSurveyTopic,
+  createQuestionType,
+  createQBCategory,
+  createSurveyType,
+  createCorporation,
+  createDesignation,
+  createAssemblyConstituency,
+  createWard,
+  updateUser,
+  updateBlockType,
+  updateSurveyTopic,
+  updateQuestionType,
+  updateQBCategory,
+  updateSurveyType,
+  updateCorporation,
+  updateDesignation,
+  updateAssemblyConstituency,
+  updateWard,
 };
