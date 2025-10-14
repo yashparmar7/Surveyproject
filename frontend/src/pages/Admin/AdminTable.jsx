@@ -39,7 +39,7 @@ const AdminTable = () => {
       let mappedData = [];
 
       switch (mode) {
-        case "Admin":
+        case "User":
           setColumns([
             "ID",
             "First Name",
@@ -61,15 +61,12 @@ const AdminTable = () => {
           break;
 
         case "Role":
-          setColumns(["ID", "First Name", "Last Name", "Email", "Role"]);
-          endpoint = `http://localhost:5050/api/admin/get-user?page=${page}&limit=${limit}`;
+          setColumns(["ID", "Role Name"]);
+          endpoint = `http://localhost:5050/api/admin/get-role?page=${page}&limit=${limit}`;
           data = await fetchData(endpoint);
-          mappedData = data.users?.map((u) => ({
-            id: u._id,
-            firstName: u.firstName,
-            lastName: u.lastName,
-            email: u.email,
-            role: u.role?.roleName || "N/A",
+          mappedData = data.roles?.map((r) => ({
+            id: r._id,
+            roleName: r.roleName,
           }));
           break;
 
@@ -154,13 +151,13 @@ const AdminTable = () => {
           break;
 
         case "Wards":
-          setColumns(["ID", "Ward Number", "Ward Name"]);
+          setColumns(["ID", "old Ward Number", "old Ward Name"]);
           endpoint = `http://localhost:5050/api/admin/get-ward?page=${page}&limit=${limit}`;
           data = await fetchData(endpoint);
           mappedData = data.wards?.map((w) => ({
             id: w._id,
-            WardNumber: w.oldWardNumber,
-            WardName: w.oldWardName,
+            oldWardNumber: w.oldWardNumber,
+            oldWardName: w.oldWardName,
           }));
           break;
 
@@ -298,8 +295,8 @@ const AdminTable = () => {
 
               {/* Pagination */}
               {pagination.totalPages > 1 && (
-                <div className="flex justify-between items-center mt-4 px-6 py-3 bg-white border-t border-gray-200 rounded-b-lg shadow-sm">
-                  <div className="flex items-center space-x-2 text-gray-600 text-sm">
+                <div className="flex flex-col sm:flex-row justify-between items-center mt-4 px-4 py-3 bg-white border-t border-gray-200 rounded-b-lg shadow-sm gap-3">
+                  <div className="flex items-center space-x-2 text-gray-700 text-sm">
                     <span>Rows per page:</span>
                     <select
                       className="border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-blue-500"
@@ -328,42 +325,85 @@ const AdminTable = () => {
                     of {pagination.totalItems} entries
                   </div>
 
-                  <div className="flex items-center space-x-1">
+                  <div className="flex items-center space-x-1 flex-wrap justify-center sm:justify-end">
                     <button
-                      className={`px-3 py-1 rounded border text-sm ${
-                        pagination.currentPage === 1
-                          ? "text-gray-400 border-gray-200 cursor-not-allowed"
-                          : "text-blue-600 border-blue-500 hover:bg-blue-50"
-                      }`}
+                      className={`
+      rounded-md border py-2 px-3 text-center text-sm transition-all shadow-sm
+      ${
+        pagination.currentPage === 1
+          ? "border-blue-300 text-blue-600 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          : "text-blue-600 border-blue-300 hover:text-white hover:bg-blue-600 hover:border-blue-800 focus:text-white focus:bg-blue-600 focus:border-blue-800 active:border-blue-800 active:text-white active:bg-blue-600 hover:shadow-lg"
+      }
+    `}
                       disabled={pagination.currentPage === 1}
                       onClick={() => setPage(pagination.currentPage - 1)}
                     >
                       Prev
                     </button>
 
-                    {Array.from(
-                      { length: pagination.totalPages },
-                      (_, i) => i + 1
-                    ).map((p) => (
-                      <button
-                        key={p}
-                        className={`px-3 py-1 rounded border text-sm ${
-                          pagination.currentPage === p
-                            ? "bg-blue-500 text-white border-blue-500"
-                            : "text-blue-600 border-blue-500 hover:bg-blue-50"
-                        }`}
-                        onClick={() => setPage(p)}
-                      >
-                        {p}
-                      </button>
-                    ))}
+                    <div className="flex justify-center items-center space-x-1">
+                      {Array.from(
+                        { length: pagination.totalPages },
+                        (_, i) => i + 1
+                      )
+                        .filter((p) => {
+                          if (p <= 2) return true;
+                          if (p > pagination.totalPages - 2) return true;
+                          if (
+                            p >= pagination.currentPage - 1 &&
+                            p <= pagination.currentPage + 1
+                          )
+                            return true;
+                          return false;
+                        })
+                        .map((p, index, array) => {
+                          const showEllipsisBefore =
+                            index > 0 && p > array[index - 1] + 1;
+
+                          const elements = [];
+
+                          if (showEllipsisBefore) {
+                            elements.push(
+                              <span
+                                key={`ellipsis-${p}-before`}
+                                className="px-3 py-2 text-blue-600 text-sm"
+                              >
+                                ...
+                              </span>
+                            );
+                          }
+
+                          elements.push(
+                            <button
+                              key={p}
+                              className={`
+              min-w-9 rounded-md py-2 px-3 text-center text-sm transition-all
+              ${
+                pagination.currentPage === p
+                  ? "bg-blue-600 border border-transparent text-white shadow-md hover:shadow-lg hover:bg-blue-700 active:bg-blue-700 focus:bg-blue-700"
+                  : "text-blue-600 border border-blue-300 shadow-sm hover:shadow-lg hover:text-white hover:bg-blue-600 hover:border-blue-800 focus:text-white focus:bg-blue-600 focus:border-blue-800 active:border-blue-800 active:text-white active:bg-blue-600"
+              }
+              disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none
+            `}
+                              onClick={() => setPage(p)}
+                            >
+                              {p}
+                            </button>
+                          );
+
+                          return elements;
+                        })}
+                    </div>
 
                     <button
-                      className={`px-3 py-1 rounded border text-sm ${
-                        pagination.currentPage === pagination.totalPages
-                          ? "text-gray-400 border-gray-200 cursor-not-allowed"
-                          : "text-blue-600 border-blue-500 hover:bg-blue-50"
-                      }`}
+                      className={`
+      rounded-md border py-2 px-3 text-center text-sm transition-all shadow-sm
+      ${
+        pagination.currentPage === pagination.totalPages
+          ? "border-blue-300 text-blue-600 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          : "text-blue-600 border-blue-300 hover:text-white hover:bg-blue-600 hover:border-blue-800 focus:text-white focus:bg-blue-600 focus:border-blue-800 active:border-blue-800 active:text-white active:bg-blue-600 hover:shadow-lg"
+      }
+    `}
                       disabled={
                         pagination.currentPage === pagination.totalPages
                       }

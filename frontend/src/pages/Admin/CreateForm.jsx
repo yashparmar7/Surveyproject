@@ -15,7 +15,7 @@ const CreateForm = () => {
   const [error, setError] = useState("");
 
   const fieldConfigs = {
-    Admin: [
+    User: [
       { name: "firstName", label: "First Name", type: "text", required: true },
       { name: "lastName", label: "Last Name", type: "text", required: false },
       { name: "email", label: "Email", type: "email", required: true },
@@ -23,10 +23,7 @@ const CreateForm = () => {
       { name: "role", label: "Role", type: "text", required: true },
     ],
     Role: [
-      { name: "firstName", label: "First Name", type: "text", required: true },
-      { name: "lastName", label: "Last Name", type: "text", required: false },
-      { name: "email", label: "Email", type: "email", required: true },
-      { name: "role", label: "Role", type: "text", required: true },
+      { name: "roleName", label: "Role Name", type: "text", required: true },
     ],
     BlockType: [
       {
@@ -135,7 +132,7 @@ const CreateForm = () => {
 
     try {
       const resourceMap = {
-        Admin: "user",
+        User: "user",
         Role: "role",
         BlockType: "blocktype",
         SurveyTopic: "surveytopic",
@@ -145,7 +142,7 @@ const CreateForm = () => {
         Corporation: "corporation",
         Designation: "designation",
         Assembly: "assemblyconstituency",
-        Wards: "ward",
+        Wards: "wards",
         Reports: "report",
       };
 
@@ -157,13 +154,6 @@ const CreateForm = () => {
           : `http://localhost:5050/api/admin/create-${resource}`;
 
       console.log(endpoint);
-
-      // const endpoint =
-      //   mode === "edit"
-      //     ? `http://localhost:5050/api/admin/update-${role.toLowerCase()}/${
-      //         formData.id
-      //       }`
-      //     : `http://localhost:5050/api/admin/create-${role.toLowerCase()}`;
 
       const method = mode === "edit" ? "PUT" : "POST";
 

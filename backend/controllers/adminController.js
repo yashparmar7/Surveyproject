@@ -8,8 +8,8 @@ const Corporation = require("../models/Corporation");
 const Designation = require("../models/Designation");
 const AssemblyConstituency = require("../models/AssemblyConstituency");
 const Ward = require("../models/Ward");
+const Role = require("../models/Role");
 
-// Helper to paginate any model
 const paginateModel = async (Model, page, limit, populateField = null) => {
   const skip = (page - 1) * limit;
   const totalItems = await Model.countDocuments();
@@ -195,6 +195,19 @@ const getWard = async (req, res) => {
   }
 };
 
+const getRole = async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const { items: roles, pagination } = await paginateModel(Role, page, limit);
+
+    res.json({ roles, pagination });
+  } catch (error) {
+    console.error("Error fetching roles:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 const getReports = async (req, res) => {
   try {
     // Reports are static; pagination optional
@@ -365,6 +378,21 @@ const createWard = async (req, res) => {
       .json({ message: "Ward created successfully", ward: newWard });
   } catch (error) {
     console.error("Error creating ward:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+const createRole = async (req, res) => {
+  try {
+    const { roleName } = req.body;
+    const newRole = new Role({ roleName });
+    await newRole.save();
+    res.status(201).json({
+      message: "Role created successfully",
+      role: newRole,
+    });
+  } catch (error) {
+    console.error("Error creating role:", error);
     res.status(500).json({ message: "Server error" });
   }
 };
@@ -579,6 +607,27 @@ const updateWard = async (req, res) => {
   }
 };
 
+const updateRole = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { roleName } = req.body;
+    const updatedRole = await Role.findByIdAndUpdate(
+      id,
+      { roleName },
+      { new: true }
+    );
+    if (!updatedRole)
+      return res.status(404).json({ message: "Role not found" });
+    res.json({
+      message: "Role updated successfully",
+      role: updatedRole,
+    });
+  } catch (error) {
+    console.error("Error updating role:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
 module.exports = {
   getUser,
   getBlockType,
@@ -590,6 +639,7 @@ module.exports = {
   getDesignation,
   getAssemblyConstituency,
   getWard,
+  getRole,
   getReports,
   createUser,
   createBlockType,
@@ -601,6 +651,7 @@ module.exports = {
   createDesignation,
   createAssemblyConstituency,
   createWard,
+  createRole,
   updateUser,
   updateBlockType,
   updateSurveyTopic,
@@ -611,4 +662,5 @@ module.exports = {
   updateDesignation,
   updateAssemblyConstituency,
   updateWard,
+  updateRole,
 };

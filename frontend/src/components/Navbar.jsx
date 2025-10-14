@@ -1,19 +1,32 @@
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const role = JSON.parse(localStorage.getItem("user")).role;
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary shadow-sm">
       <div className="container-fluid">
-        {/* Brand / Logo */}
-        <Link className="navbar-brand fw-bold" to="/home">
-          <img
-            src="/logo.png"
-            alt="D2DSurvey Logo"
-            style={{ width: "40px" }}
-            className="d-inline-block align-text-center me-2"
-          />
-          D2D Survey
-        </Link>
+        {role.roleName === "Admin" || role.roleName === "SuperAdmin" ? (
+          <Link className="navbar-brand fw-bold" to="/adminmenu">
+            <img
+              src="/logo.png"
+              alt="D2DSurvey Logo"
+              style={{ width: "40px" }}
+              className="d-inline-block align-text-center me-2"
+            />
+            Admin Dashboard
+          </Link>
+        ) : (
+          <Link className="navbar-brand fw-bold" to="/home">
+            <img
+              src="/logo.png"
+              alt="D2DSurvey Logo"
+              style={{ width: "40px" }}
+              className="d-inline-block align-text-center me-2"
+            />
+            D2D Survey
+          </Link>
+        )}
+
         {/* Toggler for small screens */}
         <button
           className="navbar-toggler"

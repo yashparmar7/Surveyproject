@@ -10,6 +10,7 @@ const {
   getDesignation,
   getAssemblyConstituency,
   getWard,
+  getRole,
   getReports,
   createUser,
   createBlockType,
@@ -21,6 +22,7 @@ const {
   createDesignation,
   createAssemblyConstituency,
   createWard,
+  createRole,
   updateUser,
   updateBlockType,
   updateSurveyTopic,
@@ -31,6 +33,7 @@ const {
   updateDesignation,
   updateAssemblyConstituency,
   updateWard,
+  updateRole,
 } = require("../controllers/adminController");
 
 const router = express.Router();
@@ -46,9 +49,11 @@ router.get("/get-corporation", getCorporation);
 router.get("/get-designation", getDesignation);
 router.get("/get-assemblyconstituency", getAssemblyConstituency);
 router.get("/get-ward", getWard);
+router.get("/get-role", getRole);
 router.get("/get-reports", getReports);
 
-router.post("/create-role", createUser);
+router.post("/create-user", createUser);
+router.post("/create-role", createRole);
 router.post("/create-blocktype", createBlockType);
 router.post("/create-surveytopic", createSurveyTopic);
 router.post("/create-questiontype", createQuestionType);
@@ -59,7 +64,8 @@ router.post("/create-designation", createDesignation);
 router.post("/create-assembly", createAssemblyConstituency);
 router.post("/create-wards", createWard);
 
-router.put("/update-role/:id", updateUser);
+router.put("/update-user/:id", updateUser);
+router.put("/update-role/:id", updateRole);
 router.put("/update-blocktype/:id", updateBlockType);
 router.put("/update-surveytopic/:id", updateSurveyTopic);
 router.put("/update-questiontype/:id", updateQuestionType);
