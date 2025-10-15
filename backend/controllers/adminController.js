@@ -31,7 +31,7 @@ const paginateModel = async (Model, page, limit, populateField = null) => {
 const getUser = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: users, pagination } = await paginateModel(
       User,
       page,
@@ -49,7 +49,7 @@ const getUser = async (req, res) => {
 const getBlockType = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: blockTypes, pagination } = await paginateModel(
       BlockType,
       page,
@@ -66,7 +66,7 @@ const getBlockType = async (req, res) => {
 const getSurveyTopic = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: surveyTopics, pagination } = await paginateModel(
       SurveyTopic,
       page,
@@ -83,7 +83,7 @@ const getSurveyTopic = async (req, res) => {
 const getQuestionType = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: questionTypes, pagination } = await paginateModel(
       QuestionType,
       page,
@@ -100,7 +100,7 @@ const getQuestionType = async (req, res) => {
 const getQBCategory = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: qbCategories, pagination } = await paginateModel(
       QBCategory,
       page,
@@ -117,7 +117,7 @@ const getQBCategory = async (req, res) => {
 const getSurveyType = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: surveyTypes, pagination } = await paginateModel(
       SurveyType,
       page,
@@ -134,7 +134,7 @@ const getSurveyType = async (req, res) => {
 const getCorporation = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: corporations, pagination } = await paginateModel(
       Corporation,
       page,
@@ -151,7 +151,7 @@ const getCorporation = async (req, res) => {
 const getDesignation = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: designations, pagination } = await paginateModel(
       Designation,
       page,
@@ -168,7 +168,7 @@ const getDesignation = async (req, res) => {
 const getAssemblyConstituency = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: assemblies, pagination } = await paginateModel(
       AssemblyConstituency,
       page,
@@ -185,7 +185,7 @@ const getAssemblyConstituency = async (req, res) => {
 const getWard = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: wards, pagination } = await paginateModel(Ward, page, limit);
 
     res.json({ wards, pagination });
@@ -198,7 +198,7 @@ const getWard = async (req, res) => {
 const getRole = async (req, res) => {
   try {
     const page = parseInt(req.query.page) || 1;
-    const limit = parseInt(req.query.limit) || 10;
+    const limit = parseInt(req.query.limit) || 5;
     const { items: roles, pagination } = await paginateModel(Role, page, limit);
 
     res.json({ roles, pagination });

@@ -11,7 +11,7 @@ const AdminTable = () => {
   const [loading, setLoading] = useState(false);
 
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(5);
   const [pagination, setPagination] = useState({
     currentPage: 1,
     totalPages: 1,

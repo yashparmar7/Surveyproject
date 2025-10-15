@@ -19,33 +19,134 @@ import AdminMenu from "./pages/Admin/AdminMenu";
 import AdminTable from "./pages/Admin/AdminTable";
 import CreateForm from "./pages/Admin/CreateForm";
 import ReportList from "./pages/Admin/ReportList";
+import ProtectedRoutes from "./ProtectRoutes/ProtectRoutes";
 
 function App() {
   return (
     <Router>
       <ToastContainer />
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<Index />} />
         <Route path="/registration" element={<Registration />} />
-
-        <Route path="/collect-info" element={<CollectInfo />} />
-        <Route path="/door-search" element={<DoorSearch />} />
-        <Route path="/existinghhs" element={<Existinghhs />} />
-        <Route path="/final" element={<Final />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/personal" element={<Personal />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/survey" element={<Survey />} />
-        <Route path="/surveyqa" element={<Surveyqa />} />
-        <Route path="/survey-start" element={<SurveyStart />} />
-
         <Route path="/createuser" element={<CreateUser />} />
         <Route path="/set-password" element={<SetPassword />} />
 
-        <Route path="/adminmenu" element={<AdminMenu />} />
-        <Route path="/admintable" element={<AdminTable />} />
-        <Route path="/createform" element={<CreateForm />} />
-        <Route path="/reportlist" element={<ReportList />} />
+        {/* Volunteer Protected Routes */}
+        <Route
+          path="/collect-info"
+          element={
+            <ProtectedRoutes>
+              <CollectInfo />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/door-search"
+          element={
+            <ProtectedRoutes>
+              <DoorSearch />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/existinghhs"
+          element={
+            <ProtectedRoutes>
+              <Existinghhs />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/final"
+          element={
+            <ProtectedRoutes>
+              <Final />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoutes>
+              <Home />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/personal"
+          element={
+            <ProtectedRoutes>
+              <Personal />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoutes>
+              <Profile />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/survey"
+          element={
+            <ProtectedRoutes>
+              <Survey />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/surveyqa"
+          element={
+            <ProtectedRoutes>
+              <Surveyqa />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/survey-start"
+          element={
+            <ProtectedRoutes>
+              <SurveyStart />
+            </ProtectedRoutes>
+          }
+        />
+
+        {/* Admin Protected Routes */}
+        <Route
+          path="/adminmenu"
+          element={
+            <ProtectedRoutes>
+              <AdminMenu />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/admintable"
+          element={
+            <ProtectedRoutes>
+              <AdminTable />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/createform"
+          element={
+            <ProtectedRoutes>
+              <CreateForm />
+            </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/reportlist"
+          element={
+            <ProtectedRoutes>
+              <ReportList />
+            </ProtectedRoutes>
+          }
+        />
       </Routes>
     </Router>
   );
